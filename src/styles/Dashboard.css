@@ -1,0 +1,143 @@
+
+.dashboard {
+    padding: 20px;
+    background: #1c1b2e;
+    min-height: 100vh;
+    width: 100vw; 
+    color: white;
+  }
+  
+  .dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .stats-card-combined{
+      display: flex;
+      align-items: center;
+      /* justify-content: space-around; */
+      background: #2563eb;
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 36px; /* space below */
+      color: white;
+      width: 85%;
+  }
+  .stats-block {
+    flex: 0.5; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .stats-title {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0;
+  }
+  
+  .stats-amount {
+    font-size: 20px;
+    margin: 4px 0 0 0;
+  }
+  .stats-divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 60px; 
+    margin: 0 24px;
+  }
+
+  /* .filterAdd{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  } */
+
+   .addExpenseBtn{
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+    background-color: #ffffff;   /* white button */
+    color: #2563eb;              /* the same blue (#2563eb) from your design */
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;           /* vertical + horizontal padding */
+    font-size: 14px;
+    font-weight: 500;            /* medium weight, adjust if needed */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    
+  } 
+
+  .addExpenseBtn:hover {
+    background-color: #f0f0f0; /* slight light‐gray on hover */
+    transform: translateY(-1px);
+  }
+
+  .addExpenseBtn:active {
+    transform: translateY(0);   /* depress effect */
+  }
+
+  .controls-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+     gap: 16px;   
+     margin-bottom: 24px;  
+  }
+
+  .plus{
+   position: relative;
+   left: 3px;
+    font-size: 18px;
+    line-height: 1;
+    color: #2563eb;
+  }
+  .desktop-visible {
+    display: block;
+  }
+  .mobile-visible {
+    display: block;
+  }
+  
+
+   @media (min-width: 768px) {
+    .mobile-visible {
+      display: none;
+    }
+  }
+  
+  
+
+  
+  
+  /* Stack columns on mobile */
+  @media (max-width: 768px) {
+    .dashboard-content {
+      grid-template-columns: 1fr;
+    }
+    .stats-card-combined {
+      flex-direction: column;
+      text-align: center;
+      width: 100%; /* Full width on mobile */
+    }
+    .stats-divider {
+      /* When stacked, turn divider into a horizontal line */
+      width: 80%;
+      height: 1px;
+      margin: 16px auto;
+    }
+    .addExpenseBtn{
+      margin-right: 0px;
+    }
+
+    .desktop-visible {
+      display: none;
+    }
+    }
+
+    
+   

@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: #2a293d;
+  }
+  .header-link {
+    color: #7a7aff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    background-color: whitesmoke;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  .header-link:hover {
+    background-color: #e0e0e0;
+  }
+
+  .logo1 {
+    width: 150px;
+    margin-left: 30px;
+  }
+  

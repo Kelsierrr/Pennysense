@@ -1,0 +1,29 @@
+.filter-controls select {
+    background-color: #1c1b2e;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.5s ease;
+  }
+  .filter-controls select:hover {
+    border-color: #58588b;
+    transition: border-color 0.5s ease;
+  }
+
+  .filter-controls select:focus {
+    outline: none;
+    border-color: #58588b; /* maybe a subtle highlight when focused */
+  }
+.FC1{
+    margin: 0px 35px;
+}
+
+
+@media (max-width: 768px){
+ .FC1{
+    margin: 0px 5px 0px 0px;
+ }   
+}

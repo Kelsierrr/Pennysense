@@ -1,0 +1,17 @@
+.add-expense-container {
+    background-color: #1c1b2e;
+    min-height: 100vh;
+    padding: 24px;
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .page-title {
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: #fff;
+  }
+  

@@ -1,0 +1,288 @@
+.add-expense-form{
+    background-color: #2a293d;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.row{
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.row-dual{
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.row-dual .textInput,
+.row-dual .numberInput{
+  flex: 1;
+}
+
+.row-buttons{
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.totalGroup{
+    margin-bottom: 24px;
+}
+
+.totalInput {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #1c1b2e;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+  }
+
+   /* Calendar container background */
+ .react-datepicker {
+  background-color: #2a293d;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* .react-datepicker:hover{
+  color: black;
+} */
+
+/* Day labels (Mo, Tu, We, …) and day numbers */
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: #fff;
+}
+
+/* Day hover effect */
+.react-datepicker__day:hover {
+  background-color: #444 !important;
+  color: #fff;
+}
+
+ 
+  /* Today’s date highlight */
+  .react-datepicker__day--today {
+    background-color: #444;
+    color: #fff;
+  }
+
+  /* Selected date highlight */
+  .react-datepicker__day--selected,
+  .react-datepicker__day--keyboard-selected {
+    background-color: #2563eb;
+    color: #fff;
+  }
+
+  /* Navigation arrows (prev/next) */
+  .react-datepicker__navigation-icon::before {
+    border-color: #fff;
+  }
+
+   /* Header (month + year) */
+   .react-datepicker__current-month,
+   .react-datepicker__header {
+     background-color: #2a293d;
+     color: #fff;
+   }
+
+
+  .dateInput {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #1c1b2e;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .dateInput::placeholder {
+    color: #aaa;
+    opacity: 1;
+  }
+  
+  /* Focus style */
+  .dateInput:focus {
+    border-color: #7a7aff;
+    box-shadow: 0 0 4px rgba(122, 122, 255, 0.4);
+  }
+
+  .textInput, .numberInput {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #1c1b2e;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+    .textInput::placeholder, .numberInput::placeholder {
+        color: #aaa;
+        opacity: 1;
+    }
+
+    /* Focus style */
+      .textInput:focus, .numberInput:focus {
+        border-color: #7a7aff;
+        box-shadow: 0 0 4px rgba(122, 122, 255, 0.4);
+      }
+      
+    
+      
+      /* ─── Additional Information Textarea ─── */
+      .textareaInput {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #444;
+        background-color: #1c1b2e;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        resize: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        margin-bottom: 25px;
+      }
+      
+      .textareaInput::placeholder {
+        color: #aaa;
+        opacity: 1;
+      }
+      
+      .textareaInput:focus {
+        border-color: #7a7aff;
+        box-shadow: 0 0 4px rgba(122, 122, 255, 0.4);
+      }
+
+      .removeLineBtn{
+        position: absolute;
+        top: 4rem;
+        right: 2px;
+        padding: 2px 5px;
+        margin-bottom: 25px;
+        background: #fff;
+        border-color: #fff;
+        color: #0e0d0d;
+        cursor: pointer;
+        transition: transform 0.1, color 0.2s;
+
+      }
+
+      .removeLineBtn:hover {
+        color: #000;
+        transform: scale(1.1);
+      }
+
+      .removeLineBtn:active {
+        transform: scale(1);
+      }
+     .lineGroup{
+      position: relative;
+      padding: 12px 0;
+      border-bottom: 1px solid #444;
+     }
+
+     .lineGroup:last-child {
+      border-bottom: none;
+     }
+  
+  /* + Add Expense Button */
+  .addLineBtn{
+    width: 100%;
+    padding: 12px 0;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+
+  .addLineBtn:hover {
+    background-color: #555;
+    transform: scale(1.02);
+  }
+
+  .addLineBtn:active {
+    transform: translateY(0);
+  }
+  
+  /* Confirm, Cancel Button */
+
+  .confirmBtn, .cancelBtn{
+    padding: 12px 20px;
+    background-color: #2563eb;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+  .confirmBtn:hover, .cancelBtn:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.02);
+  }
+
+  .confirmBtn:active, .cancelBtn:active {
+    transform: translateY(0);
+  }
+
+  
+  /* ───────────────────────────────────────────────────
+     Responsive: Stack on small screens (≤600px)
+  ────────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+
+    /* .add-expense-form{
+      display: ;
+    } */
+    .lineGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    .dateInput,
+    .textInput,
+    .numberInput,
+    .textareaInput {
+      width: 100%;
+    }
+  
+    .form-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .addLineBtn,
+    .confirmBtn {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+  
+    .confirmBtn {
+      margin-bottom: 0;
+    }
+  }
+
