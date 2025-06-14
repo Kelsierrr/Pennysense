@@ -1,0 +1,98 @@
+.expense-history{
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding-right: 4px;
+}
+
+.no-expenses {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+.expense-row{
+    display: flex;
+    padding: 12px 16px;
+    background-color: #2a293d;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.expense-row:hover {
+    background-color: #3a394f;
+    transform: translateY(-2px);
+  }
+
+  .expense-row:active {
+    transform: translateY(0);
+  }
+
+.expense-date{
+    flex: 0 0 120px; /* Fixed width for date */
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+}
+.expense-category{
+    flex: 1; /* Flexible width for category */
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+.expense-amount {
+flex: 0 0 100px; /* Fixed width for amount */
+  color: #fff;
+  font-size: 14px;
+    margin-right: 12px; /* Add some space on the right */
+}
+
+
+.expense-chevron {
+    flex: 0 0 auto;
+    color: #9d9dff;  /* accent color */
+    font-size: 16px;
+    margin-left: 12px;
+  }
+.expense-row:hover .expense-chevron {
+    color: #fff;  /* change color on hover */  
+}
+
+/* Custom scrollbar (WebKit browsers only) */
+.expense-history::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .expense-history::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .expense-history::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  .expense-history::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  @media (max-width: 768px){
+    .expense-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 12px;
+      }
+
+        .expense-date, .expense-category, .expense-amount {
+            flex: 1; /* Make all items flexible */
+            text-align: left; /* Align text to the left */
+            margin-bottom: 4px; /* Add space between items */
+        }
+      .expense-chevron {
+        align-self: flex-end;
+      }
+  }
+

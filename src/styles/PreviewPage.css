@@ -1,0 +1,16 @@
+.preview-page {
+    background: #1c1b2e;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .backBtn {
+    background: none;
+    border: none;
+    color: #7cfc00;
+    font-size: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  
