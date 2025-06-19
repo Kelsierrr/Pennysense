@@ -24,12 +24,12 @@ export default function ExpensePreview ({expense}) {
             <h2 className="preview-title">Expense Preview</h2>
 
             <div className="preview-row">
-                <span className="label">Amount Spent</span>
-                <span className="value">₦{formattedAmount}</span>
-                </div>
-            <div className="preview-row">
                 <span className="label">Date Spent</span>
                 <span className="value">{date}</span>
+                </div>
+            <div className="preview-row">
+            <span className="label">Amount Spent</span>
+                <span className="value">₦{formattedAmount}</span>
                 </div>
             <div className="preview-section">
                 <div className="section-title">Expense Details</div>

@@ -1,6 +1,6 @@
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css"
 import Header from "../components/Header/header";
 import AddExpenseForm from "../components/AddExpenseForm/AddExpenseForm";
@@ -10,21 +10,36 @@ import  FilterControls from "../components/FilterControls/FilterControls";
 import Notification from "../components/Notification/Notification";
 
 function Dashboard({expenses, onAddExpense}) {
+  const location = useLocation();
+  const initialFilterMonth = location.state?.filterMonth || 'JUN';
+  const initialFilterYear = location.state?.filterYear || '2025';
     const navigate = useNavigate();
-    const [filterMonth, setFilterMonth] = useState('JUN');
-    const [filterYear, setFilterYear] = useState('2025');
+    const [filterMonth, setFilterMonth] = useState(initialFilterMonth);
+    const [filterYear, setFilterYear] = useState(initialFilterYear);
     const [showForm, setShowForm] = useState(true);
     const [selectedExpense, setSelectedExpense] = useState(null);
     const [toast, setToast] = useState(null);
+
+
+    useEffect(() => {
+        if (location.state?.filterMonth) {
+            setFilterMonth(location.state.filterMonth);
+          }
+          if (location.state?.filterYear) {
+            setFilterYear(location.state.filterYear);
+          }
+        },[location.state]
+          ) 
 
     function handleFilterChange(month, year) {
         setFilterMonth(month);
         setFilterYear(year);
     }
     function handleAddExpense(newExpenses) {
-      newExpenses.forEach(exp => onAddExpense(exp));
-      // setSelectedExpense(newExpenses[0]);
       const exp = newExpenses[0];
+      newExpenses.forEach(onAddExpense);
+      // setSelectedExpense(newExpenses[0]);
+      
       setFilterMonth(exp.month);
       setFilterYear(exp.year);
       setSelectedExpense(exp);
@@ -40,7 +55,7 @@ function Dashboard({expenses, onAddExpense}) {
         setShowForm(false);
          
         if (window.innerWidth < 768) {
-          navigate('/dashboard/preview', {state: expense});
+          navigate('/dashboard/preview', {state:{expense, filterMonth, filterYear}});
         }
       }
   
@@ -83,10 +98,12 @@ function Dashboard({expenses, onAddExpense}) {
                     onChange = { handleFilterChange}
                  />
                   
-                    <button className="addExpenseBtn" onClick={() => {setShowForm(true); setSelectedExpense(null); }}>
+                    <button className="addExpenseBtn desktop-visible" onClick={() => {setShowForm(true); setSelectedExpense(null); }}>
                      Add Expense <span className="plus">+</span>
                     </button>
-                 <button className="addExpenseBtn mobile-visible" onClick={() => navigate('/dashboard/add-expense')}>
+                 <button className="addExpenseBtn mobile-visible" onClick={() => navigate('/dashboard/add-expense', {state: {
+                  filterMonth, filterYear
+                 }})}>
                     Add Expense <span className="plus">+</span></button>
                   </div>
                 

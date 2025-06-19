@@ -1,14 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AddExpenseForm from "../components/AddExpenseForm/AddExpenseForm";
 import '../styles/AddExpense.css';
 
 export default function AddExpensePage({ onSubmit }) {
   const navigate = useNavigate();
+  const {state} = useLocation();
+  const {filterMonth, filterYear} = state || {};
 
   function handleSubmit(expenseArray) {
     expenseArray.forEach(expenseObject => onSubmit(expenseObject));
-    navigate('/dashboard');
+    navigate('/dashboard', {
+      state: { filterMonth, filterYear }
+    });
   }
   
 

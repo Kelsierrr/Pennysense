@@ -43,11 +43,12 @@ export default function AddExpenseForm({ visible, onSubmit, onCancel }) {
             const yearStr = dt.getFullYear();
             const displayDate = `${yearStr}-${monthStr}-${dayStr}`;
 
-            const monthAbbr = dt.toLocaleString('default', { month: 'short' });
+            const monthAbbr = dt.toLocaleString('default', { month: 'short' }).toUpperCase();
     
             return {
                 date: displayDate,
                 month: monthAbbr,
+                year: yearStr,
                 category: line.category,
                 amount: parseFloat(line.amount),
                 details: [],

@@ -139,5 +139,12 @@
     }
     }
 
+    @media (max-width: 370px){
+      .addExpenseBtn{
+        padding: 6px 4px;
+        font-size: 12px;
+      }
+     }
+
     
    
