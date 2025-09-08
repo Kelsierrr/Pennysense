@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "../assets/Pennylogo.png";
-import picture1 from "../assets/picture1.png";
+import Picture1 from "../assets/Picture1.png";
 import "../styles/LoginPage.css";
 import{ Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -11,7 +11,7 @@ function Loginpage() {
     return (
         <div className="Loginpage1">
           <div className="Loginleft1">
-            <img src={picture1} alt="" />
+            <img src={Picture1} alt="" />
           </div>
       
           <div className="loginRight1">
