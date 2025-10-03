@@ -1,29 +1,38 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useOutletContext } from "react-router-dom";
 import AddExpenseForm from "../components/AddExpenseForm/AddExpenseForm";
-import '../styles/AddExpense.css';
+import "../styles/AddExpense.css";
 
-export default function AddExpensePage({ onSubmit }) {
+export default function AddExpensePage() {
   const navigate = useNavigate();
-  const {state} = useLocation();
-  const {filterMonth, filterYear} = state || {};
+  const location = useLocation();
+  const { handleAddExpense, filterMonth, filterYear } = useOutletContext();
 
   function handleSubmit(expenseArray) {
-    expenseArray.forEach(expenseObject => onSubmit(expenseObject));
-    navigate('/dashboard', {
-      state: { filterMonth, filterYear }
+    handleAddExpense(expenseArray);
+    navigate("..", {
+      state: { filterMonth, filterYear },
+      replace: true,
     });
   }
-  
 
   function handleCancel() {
-    navigate('/dashboard');
+    navigate("..", {
+      state: { filterMonth, filterYear },
+      replace: true,
+    });
   }
 
   return (
-    <div className="add-expense-container">
-      <h2 className="page-title">Add New Expense</h2>
-      <AddExpenseForm visible={true} onSubmit={handleSubmit} onCancel={handleCancel} />
-    </div>
+   <div className="add-expense-layout">
+  <div className="add-expense-left">
+    {/* Optional: could show stats or just leave empty */}
+  </div>
+  <div className="add-expense-right">
+    <h2 className="page-title">Add New Expense</h2>
+    <AddExpenseForm visible={true} onSubmit={handleSubmit} onCancel={handleCancel} />
+  </div>
+</div>
+
   );
 }

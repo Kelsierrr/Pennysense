@@ -11,9 +11,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    margin-top: 20px;
+  }
+  .dashboard-left{
+    margin-top: 40px;
   }
 
+  
   .stats-card-combined{
       display: flex;
       align-items: center;
@@ -58,7 +61,8 @@
    .addExpenseBtn{
     display: flex;
     align-items: center;
-    margin-right: 25px;
+    justify-content: center;
+    margin-right: 6rem;
     background-color: #ffffff;   /* white button */
     color: #2563eb;              /* the same blue (#2563eb) from your design */
     border: none;
@@ -88,6 +92,17 @@
      gap: 16px;   
      margin-bottom: 24px;  
   }
+  .filter-controls-group {
+  display: flex;
+  gap: 12px;
+}
+
+.add-expense-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
 
   .plus{
    position: relative;
