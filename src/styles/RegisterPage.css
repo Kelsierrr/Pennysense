@@ -104,7 +104,7 @@
 
   
 
-  #email-address2{
+  #email-address{
     box-sizing: border-box;
     padding: 12px;
     width: 100%;
@@ -117,12 +117,12 @@
     color: white;
   }
 
-  #email-address2:focus{
+  #email-address:focus{
     border: 1px solid #2563eb;
     background-color: #1c1b2e;
   }
 
-  #username2{
+  #username{
     box-sizing: border-box;
     padding: 12px;
     width: 100%;
@@ -134,7 +134,7 @@
     background-color: #1c1b2e;
     color: white;
   }
-  #username2:focus{
+  #username:focus{
     border: 1px solid #2563eb;
     background-color: #1c1b2e;
   }

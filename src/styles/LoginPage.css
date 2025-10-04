@@ -149,7 +149,7 @@
     transform: rotate(45deg);
   }
 
-  #username{
+  #email{
     box-sizing: border-box;
     padding: 12px;
     width: 100%;
@@ -161,7 +161,7 @@
     background-color: #1c1b2e;
     color: white;
   }
-  #username:focus{
+  #email:focus{
     border: 1px solid #2563eb;
     background-color: #1c1b2e;
   }

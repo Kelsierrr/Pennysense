@@ -3,6 +3,7 @@ import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './AddExpenseForm.css';
 import { FiX } from 'react-icons/fi';
+import API from '../../utils/api';
 
 
 export default function AddExpenseForm({ visible, onSubmit, onCancel }) {
@@ -32,34 +33,49 @@ export default function AddExpenseForm({ visible, onSubmit, onCancel }) {
         setLines(prev => prev.filter((_, i) => i !== idx));
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    async function handleSubmit(e) {
+  e.preventDefault();
 
-        const expenseObjects = lines.map(line => {
-            const dt = line.date || new Date();
+  const expenseObjects = lines.map(line => {
+    const dt = line.date || new Date();
 
-            const dayStr = String(dt.getDate()).padStart(2, '0');
-            const monthStr = String(dt.getMonth() + 1).padStart(2, '0');
-            const yearStr = dt.getFullYear();
-            const displayDate = `${yearStr}-${monthStr}-${dayStr}`;
+    const dayStr = String(dt.getDate()).padStart(2, '0');
+    const monthStr = String(dt.getMonth() + 1).padStart(2, '0');
+    const yearStr = dt.getFullYear();
+    const displayDate = `${yearStr}-${monthStr}-${dayStr}`;
 
-            const monthAbbr = dt.toLocaleString('default', { month: 'short' }).toUpperCase();
-    
-            return {
-                date: displayDate,
-                month: monthAbbr,
-                year: yearStr,
-                category: line.category,
-                amount: parseFloat(line.amount),
-                details: [],
-                additionalInfo: line.additionalInfo
-            };
-        });
+    const monthAbbr = dt.toLocaleString('default', { month: 'short' }).toUpperCase();
 
-        onSubmit(expenseObjects);
-        setLines([{ date: null, category: '', amount: '', additionalInfo: '' }]);
+    return {
+      date: displayDate,
+      month: monthAbbr,
+      year: yearStr,
+      category: line.category,
+      amount: parseFloat(line.amount),
+      details: [],
+      additionalInfo: line.additionalInfo
+    };
+  });
 
-    }
+  try {
+    // 🔑 Save to backend
+    await Promise.all(
+      expenseObjects.map(exp =>
+        API.post("/expenses", exp) // your server route
+      )
+    );
+
+    // 🔑 Pass up to parent (keeps dashboard in sync)
+    onSubmit(expenseObjects);
+
+    // ✅ Reset the form
+    setLines([{ date: null, category: '', amount: '', additionalInfo: '' }]);
+
+  } catch (err) {
+    console.error("Error saving expense:", err.response?.data || err.message);
+    alert("Failed to save expense.");
+  }
+}
     if (!visible) {return null};
 
     return(
