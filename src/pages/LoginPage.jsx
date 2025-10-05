@@ -81,7 +81,7 @@ async function handleLogin(e) {
               <span className="custom-checkbox"></span>
               Remember me
             </label>
-            <Link to="/recoverpassword" className="password-rec">Forgot Password?</Link>
+            {/* <Link to="/recoverpassword" className="password-rec">Forgot Password?</Link> */}
           </div>
 
           <div className="loginBtnContainer1">
